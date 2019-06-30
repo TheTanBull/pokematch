@@ -2,17 +2,39 @@ body {
     background-color: #333;
 }
 
+button {
+    border-radius: 25px;
+    height: 40px;
+    width: 150px;
+    outline: none;
+    background-color: #4682b4;
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #4682f4;
+}
+
+button:active {
+    transform: translateY(4px);
+}
 .container  {
     background-color: #333;
     display: flex;
     flex-flow: wrap;
+    justify-content: space-around;
+    width: 100vw;
 }
 
-.counter {
+#attempt-counter {
     background-color: goldenrod;
     font-size: 2rem;
     color: white;
-
+    width: 100vw;
+    margin: 0;
+    padding: 0;
 }
 
 .flip-card {
@@ -74,6 +96,23 @@ transform: rotateY(180deg);
     margin-top: 50px;
 }
 
-#counter {
-    color: #333;
+.game-off {
+    visibility: hidden;
+}
+
+#logo {
+    padding-top: 20vh;
+}
+
+#start-button {
+    margin-top: 20px;
+}
+
+#start-screen{
+    align-items: center;
+    background-color: goldenrod;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
 }

@@ -8,8 +8,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="counter"><img src="images/PokeMatch.png"></div>
-    <div class="counter">Attempts: <span id="attempt-counter">0</span></div>
+    <div id="attempt-counter">
+    </div>
+    <div id="start-screen">
+        <div class="start-logo">
+            <img src="images/PokeMatch.png" id="logo" width="588" height="222">
+        </div>
+        <div>
+            <button id="start-button" onclick="fillboard()">Start Game</button>
+        </div>
+    </div>
     <div class="container" id="board">
     </div>
     

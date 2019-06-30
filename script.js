@@ -1,10 +1,12 @@
 const board = document.getElementById("board");
-var flipped1
-var flipped2
-var flippedbool
+const startScreen = document.getElementById("start-screen");
+const counter = document.getElementById("counter");
+var attemptCounterElement = document.getElementById("attempt-counter");
+var flipped1;
+var flipped2;
+var flippedbool;
 var matchCounter = 0;
 var attemptCount = 0;
-var attemptCounterElement = document.getElementById("attempt-counter");
 var audioDict = {
     "Abra": new Audio('aud/abra.mp3'),
     "Aerodactyl": new Audio('aud/aerodactyl.mp3'),
@@ -90,7 +92,7 @@ var audioDict = {
     "Mew": new Audio('aud/mew.mp3'),
     "Mewtwo": new Audio('aud/mewtwo.mp3'),
     "Moltres": new Audio('aud/moltres.mp3'),
-    "Mr. Mime": new Audio('aud/mr. mime.mp3'),
+    "Mr. Mime": new Audio('aud/mrmime.mp3'),
     "Muk": new Audio('aud/muk.mp3'),
     "Nidoking": new Audio('aud/nidoking.mp3'),
     "Nidoqueen": new Audio('aud/nidoqueen.mp3'),
@@ -163,15 +165,13 @@ board.addEventListener("click", e => {
     let card1 = e.target.parentNode;
     if(card1.className === "flip-card-inner" && card1 !== flipped1 && !card1.classList.contains("flipped")){
         card1.style = " transform: rotateY(180deg)";
-        console.log("hey ma look i made it")
         if(flippedbool){
                 flippedbool = false;
                 let card2 = flipped1;
                 flipped1 = "";
                 attemptCount++;
-                attemptCounterElement.innerText = attemptCount;
+                document.getElementById("counter").innerText = "Attempts: " + attemptCount;
                 if(card1.parentNode.classList[1] === card2.parentNode.classList[1]) {
-                    console.log("Looks like a bloody match");
                     matchCounter += 1;
                     audioDict[card1.parentNode.classList[1]].play();
                     card1.classList.add("flipped");
@@ -349,7 +349,11 @@ var cardDict = {
 
 
 function fillboard(){
-    
+    startScreen.style = "Display: none;"
+    attemptCounterElement.innerHTML = '<button class="start-button" onclick="fillboard()">New Game</button><span id="counter">Attempts: 0</span>';
+    board.innerHTML = "";
+    attemptCount = 0;
+
     for(let i = 0; i < 12; i++){
         let random = Math.floor(Math.random() * 151 + 1);
         let random1 = Math.floor(Math.random() * 20 + 1);
@@ -359,5 +363,3 @@ function fillboard(){
     }
 
 }
-
-fillboard()
