@@ -16,6 +16,14 @@
             display: flex;
             flex-flow: wrap;
         }
+
+        .counter {
+            background-color: goldenrod;
+            font-size: 2rem;
+            color: white;
+
+        }
+
         .flip-card {
         background-color: transparent;
         box-sizing: border-box;
@@ -75,9 +83,15 @@
             margin-top: 50px;
         }
 
+        #counter {
+            color: #333;
+        }
+
     </style>
 </head>
 <body>
+    <div class="counter"><img src="images/PokeMatch.png"></div>
+    <div class="counter">Attempts: <span id="attempt-counter">0</span></div>
     <div class="container" id="board">
         <!-- <div class="flip-card">
             <div class="flip-card-inner">
@@ -124,7 +138,8 @@
         var flipped2
         var flippedbool
         var matchCounter = 0;
-
+        var attemptCount = 0;
+        var attemptCounterElement = document.getElementById("attempt-counter");
         var audioDict = {
             "Charmander": new Audio('audio/Charmander.mp3'),
             "Bulbasaur": new Audio('audio/Bulbasaur.mp3'),
@@ -148,7 +163,8 @@
                         flippedbool = false;
                         let card2 = flipped1;
                         flipped1 = "";
-
+                        attemptCount++;
+                        attemptCounterElement.innerText = attemptCount;
                         if(card1.parentNode.classList[1] === card2.parentNode.classList[1]) {
                             console.log("Looks like a bloody match");
                             matchCounter += 1;
@@ -189,7 +205,7 @@
 
         function fillboard(){
             
-            for(let i = 0; i < 10; i++){
+            for(let i = 0; i < 12; i++){
                 let random = Math.floor(Math.random() * 11 + 1);
                 let random1 = Math.floor(Math.random() * 20 + 1);
                 let random2 = Math.floor(Math.random() * 20 + 1);
@@ -200,6 +216,7 @@
         }
 
         fillboard()
+
     </script>
 </body>
 </html>
