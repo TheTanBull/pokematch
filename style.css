@@ -1,8 +1,6 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    width: 100vw;
 }
 
 body {
@@ -27,10 +25,8 @@ button:hover {
 button:active {
     transform: translateY(4px);
 }
-
 .container  {
     margin: 20px auto;
-    /* padding-top: 0px; */
     background-color: #333;
     display: flex;
     flex-flow: wrap;
@@ -40,7 +36,14 @@ button:active {
     max-width: 1500px;
 }
 
-
+#attempt-counter {
+    background-color: goldenrod;
+    font-size: 2rem;
+    color: white;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
 
 .flip-card {
 background-color: transparent;
@@ -106,25 +109,13 @@ transform: rotateY(180deg);
 }
 
 #attempt-counter {
-    background-color: goldenrod;
-    font-size: 2rem;
-    color: white;
-    width: 100vw;
     margin: 0;
-    padding: 0;
 }
 
 #audio-icon {
     display: block;
     float: right;
     margin: 10px 20px 10px 0;
-}
-
-#board {
-    /* margin-top: 0; */
-    /* margin-bottom: 0;
-    padding: 0; */
-    display: none;
 }
 
 #logo {
@@ -136,8 +127,6 @@ transform: rotateY(180deg);
 }
 
 #start-screen{
-    margin: 0;
-    padding: 0;
     align-items: center;
     background-color: goldenrod;
     display: flex;
