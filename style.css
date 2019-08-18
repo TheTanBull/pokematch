@@ -33,6 +33,7 @@ button:active {
     align-content: space-around;
     justify-content: space-evenly;
     width: 100vw;
+    max-width: 1500px;
 }
 
 #attempt-counter {
