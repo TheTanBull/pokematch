@@ -1,6 +1,8 @@
 # PokeMatch
 **_"Gotta match 'em all!"_**
 
+Pokematch is a Pokemon memory game in HTML/CSS/Javascript. Currently only supported on desktop (Firefox/Chrome).  
+
 Many years ago, I started teaching myself to code in order to create some translation tools for Japanese Gameboy ROMs. Pokemon ROMs.
 
 This is my homage to the past.
