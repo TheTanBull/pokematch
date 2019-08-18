@@ -2,6 +2,7 @@ const board = document.getElementById("board");
 const startScreen = document.getElementById("start-screen");
 const counter = document.getElementById("counter");
 var attemptCounterElement = document.getElementById("attempt-counter");
+var soundOn = true;
 var flipped1;
 var flipped2;
 var flippedbool;
@@ -173,7 +174,10 @@ board.addEventListener("click", e => {
                 document.getElementById("counter").innerText = "Attempts: " + attemptCount;
                 if(card1.parentNode.classList[1] === card2.parentNode.classList[1]) {
                     matchCounter += 1;
-                    audioDict[card1.parentNode.classList[1]].play();
+                    if (soundOn) {
+                        audioDict[card1.parentNode.classList[1]].play();
+                    }
+
                     card1.classList.add("flipped");
                     card2.classList.add("flipped");
                     card1.style = " transform: rotateY(180deg)";
@@ -350,7 +354,7 @@ var cardDict = {
 
 function fillboard(){
     startScreen.style = "Display: none;"
-    attemptCounterElement.innerHTML = '<button class="start-button" onclick="fillboard()">New Game</button><span id="counter">Attempts: 0</span>';
+    attemptCounterElement.innerHTML = '<button class="start-button" onclick="fillboard()">New Game</button><span id="counter">Attempts: 0</span> <img src="images/speaker.svg" id="audio-icon" height="40px" width="40px">';
     board.innerHTML = "";
     attemptCount = 0;
 
@@ -361,5 +365,11 @@ function fillboard(){
         board.innerHTML += '<div class="flip-card ' + cardDict[random] + '" style="order: ' + random1 +'"> <div class="flip-card-inner"> <div class="flip-card-front"> </div> <div class="flip-card-back"> <img src="images/' + cardDict[random] + '.png" width="150px" height="150px"> </div> </div></div>'
         board.innerHTML += '<div class="flip-card ' + cardDict[random] + '" style="order: ' + random2 +'"> <div class="flip-card-inner"> <div class="flip-card-front"> </div> <div class="flip-card-back"> <img src="images/' + cardDict[random] + '.png" width="150px" height="150px"> </div> </div></div>'
     }
+
+    var audioIcon = document.getElementById("audio-icon");
+    audioIcon.addEventListener("click", e => {
+        soundOn = !soundOn;
+        audioIcon.src = soundOn ? "images/speaker.svg" : "images/mute.svg";
+    })
 
 }
