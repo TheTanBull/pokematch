@@ -353,6 +353,7 @@ var cardDict = {
 
 
 function fillboard(){
+    flippedbool = false;
     startScreen.style = "Display: none;"
     attemptCounterElement.innerHTML = '<button class="start-button" onclick="fillboard()">New Game</button><span id="counter">Attempts: 0</span> <img src="images/speaker.svg" id="audio-icon" height="40px" width="40px">';
     board.innerHTML = "";
